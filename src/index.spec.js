@@ -285,4 +285,13 @@ describe('babel-plugin-extension-resolver', () => {
 
 		await expect(transformAsync('requireOOPS("./other");', options)).resolves.toHaveProperty('code', 'requireOOPS("./other");');
 	});
+
+	// TODO package.json resolution
+	// BODY https://github.com/browserify/resolve/blob/master/test/mock_sync.js#L49
+
+	// TODO dynamic imports
+	// BODY https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import
+
+	// TODO export from
+	// BODY https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#Syntax
 });
