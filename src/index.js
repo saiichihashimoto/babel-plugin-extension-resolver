@@ -1,1 +1,3 @@
-console.log('test'); // eslint-disable-line no-console
+const key = 'value';
+
+export default key;
