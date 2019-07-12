@@ -18,6 +18,7 @@
   "files": [
     "lib"
   ],
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib --source-maps --delete-dir-on-start --verbose --ignore \"**/*.spec.js\"",
     "test": "jest --verbose $(if [ -z ${CI+x} ]; then echo --watch; else echo --color --coverage; fi)"
@@ -35,7 +36,8 @@
   },
   "dependencies": {
     "dotenv": "8.0.0",
-    "dotenv-expand": "5.1.0"
+    "dotenv-expand": "5.1.0",
+    "resolve": "1.11.1"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
