@@ -1,0 +1,12 @@
+*.log
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.idea/
+.stryker-tmp
+.vscode/
+Thumbs.db
+coverage
+lib
+node_modules/
+yarn.lock

@@ -1,0 +1,11 @@
+_extends: .github
+repository:
+  name: babel-plugin-extension-resolver
+  description: Resolve imports to various extensions with a babel plugin
+  homepage: https://saiichihashimoto.github.io/babel-plugin-extension-resolver/
+  topics: babel, babel-plugin
+branches:
+  - name: master
+    protection:
+      required_status_checks:
+        contexts: ['Semantic Pull Request', 'WIP', 'continuous-integration/travis-ci', 'coverage/coveralls']
