@@ -3,4 +3,4 @@
 [![Coverage Status](https://coveralls.io/repos/github/saiichihashimoto/babel-plugin-extension-resolver/badge.svg?branch=master)](https://coveralls.io/github/saiichihashimoto/babel-plugin-extension-resolver?branch=master)
 [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/saiichihashimoto/babel-plugin-extension-resolver/master)](https://stryker-mutator.github.io)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Greenkeeper badge](https://badges.greenkeeper.io/saiichihashimoto/babel-plugin-extension-resolver.svg)](https://greenkeeper.io/)
