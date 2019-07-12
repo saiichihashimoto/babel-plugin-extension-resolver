@@ -1,3 +1,3 @@
-const key = 'value';
+const key = 'values';
 
 export default key;

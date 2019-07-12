@@ -1,5 +1,5 @@
 import key from '.';
 
 it('is value', () => {
-	expect(key).toBe('value');
+	expect(key).toBe('values');
 });
