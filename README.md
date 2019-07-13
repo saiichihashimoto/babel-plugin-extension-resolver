@@ -25,6 +25,9 @@ src/another.js
 // src/index.js
 import other from './other';
 import another from './another';
+
+require('./other');
+require('./another');
 ```
 **Out:**
 
@@ -32,6 +35,9 @@ import another from './another';
 // lib/index.js
 import other from './other.node.js';
 import another from './another.js';
+
+require('./other.node.js');
+require('./another.js');
 ```
 
 # Install
@@ -52,9 +58,9 @@ With options:
 
 ```json
 {
-  "plugins": ["extension-resolver", {
+  "plugins": [["extension-resolver", {
     "extensions": [".cool.js", ".js"]
-  }]
+  }]]
 }
 ```
 
