@@ -17,8 +17,11 @@ after_success:
   - cat ./coverage/lcov.info | npx coveralls
 jobs:
   include:
+    - stage: test
+      if: type = pull_request
     - stage: release
-      node_js: lts/*
+      if: type = push
+      script: skip
       deploy:
         provider: script
         skip_cleanup: true
