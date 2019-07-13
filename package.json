@@ -35,8 +35,6 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "dotenv": "8.0.0",
-    "dotenv-expand": "5.1.0",
     "resolve": "1.11.1"
   },
   "devDependencies": {
