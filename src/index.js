@@ -1,5 +1,7 @@
 import path from 'path';
+
 import resolve from 'resolve';
+
 import { name } from '../package';
 
 const DEFAULT_EXTENSIONS = [
@@ -19,7 +21,7 @@ const DEFAULT_EXTENSIONS = [
 
 export default function extensionResolver(
 	{ types },
-	{ extensions = DEFAULT_EXTENSIONS, resolveOptions = {} },
+	{ extensions = DEFAULT_EXTENSIONS, resolveOptions = {} }
 ) {
 	return {
 		name,
@@ -42,14 +44,14 @@ export default function extensionResolver(
 
 						const resolvedPath = path.relative(
 							basedir,
-							resolve.sync(sourcePath, { ...resolveOptions, basedir, extensions }),
+							resolve.sync(sourcePath, { ...resolveOptions, basedir, extensions })
 						);
 
-						source.replaceWith(types.stringLiteral((resolvedPath[0] === '.') ? resolvedPath : `./${resolvedPath}`));
+						source.replaceWith(types.stringLiteral(resolvedPath[0] === '.' ? resolvedPath : `./${resolvedPath}`));
 					}
 
 					programPath.traverse({
-						CallExpression: (declaration) => {
+						CallExpression(declaration) {
 							const callee = declaration.get('callee');
 							if (!types.isIdentifier(callee) || callee.node.name !== 'require') {
 								return;
@@ -60,7 +62,7 @@ export default function extensionResolver(
 							}
 							replaceSource(args[0]);
 						},
-						ImportDeclaration: (declaration) => {
+						ImportDeclaration(declaration) {
 							replaceSource(declaration.get('source'));
 						},
 					}, state);
