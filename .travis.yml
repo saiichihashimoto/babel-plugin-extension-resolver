@@ -10,7 +10,7 @@ notifications:
     on_success: never
     on_failure: always
 script:
-  - npm test && npx stryker run
+  - npm test && npx lint-my-app lint && npx stryker run
 after_success:
   - cat ./coverage/lcov.info | npx coveralls
 jobs:
