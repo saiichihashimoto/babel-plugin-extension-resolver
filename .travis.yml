@@ -21,8 +21,9 @@ jobs:
       if: type = push
       script: skip
       after_success: true
+      before_deploy: npm run build
       deploy:
         provider: script
         skip_cleanup: true
         script:
-          - npm run build && npx semantic-release
+          - npx semantic-release
