@@ -9,8 +9,7 @@ notifications:
       - saiichihashimoto@gmail.com
     on_success: never
     on_failure: always
-script:
-  - npm test && npx lint-my-app lint && npx stryker run
+script: npm test && npx lint-my-app lint && npx stryker run
 after_success:
   - cat ./coverage/lcov.info | npx coveralls
 jobs:
@@ -25,5 +24,4 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        script:
-          - npx semantic-release
+        script: npx semantic-release
