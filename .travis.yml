@@ -18,8 +18,6 @@ jobs:
       if: type = pull_request
     - stage: release
       if: type = push
-      script: skip
-      after_script: true
       before_deploy: npm run build
       deploy:
         provider: script
