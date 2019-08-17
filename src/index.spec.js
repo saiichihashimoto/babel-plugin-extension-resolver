@@ -28,9 +28,9 @@ describe('babel-plugin-extension-resolver', () => {
 
 	it('name=babel-plugin-extension-resolver', () => expect(plugin({ types: {} }, {}).name).toStrictEqual('babel-plugin-extension-resolver'));
 
-	it('ignores empty code', () => expect(transformAsync('', options)).resolves.toHaveProperty('code', ''));
+	it('ignores empty code', async () => expect(await transformAsync('', options)).toHaveProperty('code', ''));
 
-	it('ignores module imports', () => expect(transformAsync('import path from "path";', options)).resolves.toHaveProperty('code', 'import path from "path";'));
+	it('ignores module imports', async () => expect(await transformAsync('import path from "path";', options)).toHaveProperty('code', 'import path from "path";'));
 
 	it('finds .node.mjs files', async () => {
 		files = {
@@ -48,7 +48,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.node.mjs";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.node.mjs";');
 	});
 
 	it('finds .mjs files', async () => {
@@ -66,7 +66,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.mjs";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.mjs";');
 	});
 
 	it('finds .node.js files', async () => {
@@ -83,7 +83,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.node.js";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.node.js";');
 	});
 
 	it('finds .js files', async () => {
@@ -99,7 +99,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.js";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.js";');
 	});
 
 	it('finds .node.ts files', async () => {
@@ -114,7 +114,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.node.ts";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.node.ts";');
 	});
 
 	it('finds .ts files', async () => {
@@ -128,7 +128,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.ts";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.ts";');
 	});
 
 	it('finds .node.tsx files', async () => {
@@ -141,7 +141,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.node.tsx";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.node.tsx";');
 	});
 
 	it('finds .tsx files', async () => {
@@ -153,7 +153,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.tsx";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.tsx";');
 	});
 
 	it('finds .json files', async () => {
@@ -164,7 +164,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.json";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.json";');
 	});
 
 	it('finds .node.jsx files', async () => {
@@ -174,7 +174,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.node.jsx";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.node.jsx";');
 	});
 
 	it('finds .jsx files', async () => {
@@ -183,7 +183,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node': true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.jsx";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.jsx";');
 	});
 
 	it('finds .node files', async () => {
@@ -191,7 +191,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node': true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.node";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.node";');
 	});
 
 	it('uses extensions override', async () => {
@@ -211,7 +211,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.node':     true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other.jsx";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other.jsx";');
 	});
 
 	it('finds files in parent directory', async () => {
@@ -220,7 +220,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.js': true,
 		};
 
-		await expect(transformAsync('import other from "../other";', options)).resolves.toHaveProperty('code', 'import other from "../other.js";');
+		expect(await transformAsync('import other from "../other";', options)).toHaveProperty('code', 'import other from "../other.js";');
 	});
 
 	it('finds files in child directory', async () => {
@@ -229,7 +229,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.js':       true,
 		};
 
-		await expect(transformAsync('import other from "./child/other";', options)).resolves.toHaveProperty('code', 'import other from "./child/other.js";');
+		expect(await transformAsync('import other from "./child/other";', options)).toHaveProperty('code', 'import other from "./child/other.js";');
 	});
 
 	it('uses index file', async () => {
@@ -237,7 +237,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other/index.mjs': true,
 		};
 
-		await expect(transformAsync('import other from "./other";', options)).resolves.toHaveProperty('code', 'import other from "./other/index.mjs";');
+		expect(await transformAsync('import other from "./other";', options)).toHaveProperty('code', 'import other from "./other/index.mjs";');
 	});
 
 	it('works with multiple imports', async () => {
@@ -246,7 +246,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/another.js': true,
 		};
 
-		await expect(transformAsync('import other from "./other";\nimport another from "./another";', options)).resolves.toHaveProperty('code', 'import other from "./other.js";\nimport another from "./another.js";');
+		expect(await transformAsync('import other from "./other";\nimport another from "./another";', options)).toHaveProperty('code', 'import other from "./other.js";\nimport another from "./another.js";');
 	});
 
 	it('works with require()', async () => {
@@ -255,7 +255,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.js':       true,
 		};
 
-		await expect(transformAsync('require("./other");', options)).resolves.toHaveProperty('code', 'require("./other.node.mjs");');
+		expect(await transformAsync('require("./other");', options)).toHaveProperty('code', 'require("./other.node.mjs");');
 	});
 
 	it('ignores dynamic require()', async () => {
@@ -264,7 +264,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.js':       true,
 		};
 
-		await expect(transformAsync('const other = "./other";\n\nrequire(other);', options)).resolves.toHaveProperty('code', 'const other = "./other";\n\nrequire(other);');
+		expect(await transformAsync('const other = "./other";\n\nrequire(other);', options)).toHaveProperty('code', 'const other = "./other";\n\nrequire(other);');
 	});
 
 	it('ignores multiple arguments', async () => {
@@ -273,7 +273,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.js':       true,
 		};
 
-		await expect(transformAsync('require("./other", true);', options)).resolves.toHaveProperty('code', 'require("./other", true);');
+		expect(await transformAsync('require("./other", true);', options)).toHaveProperty('code', 'require("./other", true);');
 	});
 
 	it('ignores other function calls', async () => {
@@ -282,7 +282,7 @@ describe('babel-plugin-extension-resolver', () => {
 			'/path/to/src/other.js':       true,
 		};
 
-		await expect(transformAsync('requireOOPS("./other");', options)).resolves.toHaveProperty('code', 'requireOOPS("./other");');
+		expect(await transformAsync('requireOOPS("./other");', options)).toHaveProperty('code', 'requireOOPS("./other");');
 	});
 
 	/*
