@@ -43,7 +43,7 @@
     "@babel/preset-env": "7.5.5",
     "@stryker-mutator/babel-transpiler": "2.0.2",
     "@stryker-mutator/core": "2.0.2",
-    "@stryker-mutator/javascript-mutator": "2.0.2",
+    "@stryker-mutator/javascript-mutator": "2.1.0",
     "@stryker-mutator/jest-runner": "2.0.2",
     "cz-conventional-changelog": "3.0.2",
     "eslint-config-saiichihashimoto": "2.0.37",
