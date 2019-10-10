@@ -40,7 +40,7 @@
   "devDependencies": {
     "@babel/cli": "7.6.4",
     "@babel/core": "7.6.4",
-    "@babel/preset-env": "7.6.2",
+    "@babel/preset-env": "7.6.3",
     "@stryker-mutator/babel-transpiler": "2.0.2",
     "@stryker-mutator/core": "2.0.2",
     "@stryker-mutator/javascript-mutator": "2.1.0",
