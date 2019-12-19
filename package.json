@@ -38,7 +38,7 @@
     "resolve": "1.14.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.7.5",
+    "@babel/cli": "7.7.7",
     "@babel/core": "7.7.5",
     "@babel/preset-env": "7.7.6",
     "@stryker-mutator/babel-transpiler": "2.4.0",
