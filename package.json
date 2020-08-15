@@ -46,7 +46,7 @@
     "@stryker-mutator/javascript-mutator": "2.5.0",
     "@stryker-mutator/jest-runner": "3.0.0",
     "cz-conventional-changelog": "3.1.0",
-    "eslint-config-saiichihashimoto": "2.1.8",
+    "eslint-config-saiichihashimoto": "2.2.16",
     "husky": "4.2.5",
     "jest": "26.4.0",
     "lint-my-app": "3.7.49"
